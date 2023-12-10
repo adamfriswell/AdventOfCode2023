@@ -3,12 +3,29 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode2023", "AdventOfCode2023\AdventOfCode2023.csproj", "{77330C23-82AB-45A3-AC0F-50BA1C23A73E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode2023.Tests", "AdventOfCode2023.Tests\AdventOfCode2023.Tests.csproj", "{BBAC13A5-4495-4D2C-BE17-D5FF6218F418}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{77330C23-82AB-45A3-AC0F-50BA1C23A73E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77330C23-82AB-45A3-AC0F-50BA1C23A73E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77330C23-82AB-45A3-AC0F-50BA1C23A73E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77330C23-82AB-45A3-AC0F-50BA1C23A73E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBAC13A5-4495-4D2C-BE17-D5FF6218F418}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBAC13A5-4495-4D2C-BE17-D5FF6218F418}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBAC13A5-4495-4D2C-BE17-D5FF6218F418}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBAC13A5-4495-4D2C-BE17-D5FF6218F418}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {31E57992-9E1E-4869-82E7-D9E54C485051}
 	EndGlobalSection
 EndGlobal
