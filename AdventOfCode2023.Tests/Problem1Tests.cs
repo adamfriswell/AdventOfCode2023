@@ -30,7 +30,7 @@ public class Problem1Tests
     [InlineData("4nineeightseven2", 42)]
     [InlineData("zoneight234", 14)]
     [InlineData("7pqrstsixteen", 76)]
-    public void GivenStringNumberTestInputs_ParseGetCalibrationValue_ShouldGetExpectedValue(string input, int expectedValue)
+    public void GivenStringNumberTestInputs_GetCalibrationValueAndParseFirst_ShouldGetExpectedValue(string input, int expectedValue)
     {
         var result = Problem1.GetCalibrationValue(input, parseFirst: true);
         Assert.Equal(expectedValue, result);
@@ -38,7 +38,7 @@ public class Problem1Tests
 
 
     [Fact]
-    public void GivenTestInputsReadAsStringsAlso_GetCalibrationSum_ShouldGetExpectedSum()
+    public void GivenTestInputsReadAsStringsAlso_GetCalibrationSumAndParseFirst_ShouldGetExpectedSum()
     {
         var result = Problem1.GetCalibrationSum(new() { "two1nine", "eightwothree", "abcone2threexyz","xtwone3four",
             "4nineeightseven2", "zoneight234", "7pqrstsixteen"}, parseFirst: true);
@@ -56,7 +56,7 @@ public class Problem1Tests
     [InlineData("eight", 8)]
     [InlineData("nine", 9)]
 
-    public void GivenDigitAsString_ParseLineForDigitsAsLetters_ShouldGetExpectedValue(string input, int expectedValue)
+    public void GivenDigitAsString_ParseLineForDigitsAsLettersAndParseFirst_ShouldGetExpectedValue(string input, int expectedValue)
     {
         var result = Problem1.ParseLineForDigitsAsLetters(input);
         Assert.Equal(expectedValue.ToString(), result);
