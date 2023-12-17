@@ -30,6 +30,7 @@ public class Problem1Tests
     [InlineData("4nineeightseven2", 42)]
     [InlineData("zoneight234", 14)]
     [InlineData("7pqrstsixteen", 76)]
+    [InlineData("1twonetdm", 11)]
     public void GivenStringNumberTestInputs_GetCalibrationValueAndParseFirst_ShouldGetExpectedValue(string input, int expectedValue)
     {
         var result = Problem1.GetCalibrationValue(input, parseFirst: true);
@@ -55,19 +56,12 @@ public class Problem1Tests
     [InlineData("seven", 7)]
     [InlineData("eight", 8)]
     [InlineData("nine", 9)]
+    [InlineData("eightwo", 8)]
+    [InlineData("sevenine", 7)]
 
-    public void GivenSingleDigitAsString_ParseLineForDigitsAsLetters_ShouldGetExpectedValue(string input, int expectedValue)
+    public void GivenDigitsAsString_Search_ShouldGetExpectedValue(string input, int expectedValue)
     {
-        var result = Problem1.ParseLineForDigitsAsLetters(input);
+        var result = Problem1.Search(input, backwardsSearch: false);
         Assert.Equal(expectedValue.ToString(), result);
-    }
-
-    [Theory]
-    [InlineData("eightwo", "8wo")]
-    [InlineData("sevenine", "7ine")]
-    public void GivenTwoDigitsSharingLastAndFirstChar_ParseLineForDigitsAsLetter_ShouldOnlyParseFirstDigit(string input, string expectedResult)
-    {
-        var result = Problem1.ParseLineForDigitsAsLetters(input);
-        Assert.Equal(expectedResult, result);
     }
 }

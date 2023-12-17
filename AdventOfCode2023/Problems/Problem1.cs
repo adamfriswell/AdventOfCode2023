@@ -17,38 +17,52 @@
 
         public static int GetCalibrationValue(string inputLine, bool parseFirst = false)
         {
-            if (parseFirst) inputLine = ParseLineForDigitsAsLetters(inputLine);
+            if (parseFirst)
+            {
+                var forwardSearch = Search(inputLine, backwardsSearch: false);
+                var backwardsSearch = Search(inputLine, backwardsSearch: true);
+                return Convert.ToInt32(string.Format("{0}{1}", forwardSearch, backwardsSearch));
+            }
+
             var digitsOnly = inputLine.Where(x => char.IsDigit(x))
                                       .Select(x => Convert.ToInt32(x.ToString()));
             return Convert.ToInt32(string.Format("{0}{1}", digitsOnly.First(), digitsOnly.Last()));
         }
 
-        public static string ParseLineForDigitsAsLetters(string inputLine)
+        public static string Search(string inputLine, bool backwardsSearch)
         {
+            if (backwardsSearch) inputLine = Reverse(inputLine);
             for (int i = 0; i < inputLine.Length; i++)
             {
                 var c = inputLine[i];
                 if (char.IsDigit(c))
                 {
-                    continue;
+                    return c.ToString();
                 }
 
                 foreach (var d in _digitsAsLetters)
                 {
-                    var start = i; 
                     var end = d.Value.Length;
-                    if (start + end <= inputLine.Length)
+                    if (end <= inputLine.Length)
                     {
-                        var digitAtPosition = inputLine.Substring(start, end);
-                        if (d.Value.Equals(digitAtPosition))
+                        var digitAtPosition = inputLine.Substring(i, end);
+                        var searchString = backwardsSearch ? Reverse(d.Value) : d.Value;
+                        if (searchString.Equals(digitAtPosition))
                         {
-                            inputLine = inputLine.Replace(d.Value, d.Key.ToString());
+                            return d.Key.ToString();
                         }
                     }
 
                 }
             }
             return inputLine;
+        }
+
+        public static string Reverse(string s)
+        {
+            char[] charArray = s.ToCharArray();
+            Array.Reverse(charArray);
+            return new string(charArray);
         }
     }
 }
