@@ -56,9 +56,18 @@ public class Problem1Tests
     [InlineData("eight", 8)]
     [InlineData("nine", 9)]
 
-    public void GivenDigitAsString_ParseLineForDigitsAsLettersAndParseFirst_ShouldGetExpectedValue(string input, int expectedValue)
+    public void GivenSingleDigitAsString_ParseLineForDigitsAsLetters_ShouldGetExpectedValue(string input, int expectedValue)
     {
         var result = Problem1.ParseLineForDigitsAsLetters(input);
         Assert.Equal(expectedValue.ToString(), result);
+    }
+
+    [Theory]
+    [InlineData("eightwo", "8wo")]
+    [InlineData("sevenine", "7ine")]
+    public void GivenTwoDigitsSharingLastAndFirstChar_ParseLineForDigitsAsLetter_ShouldOnlyParseFirstDigit(string input, string expectedResult)
+    {
+        var result = Problem1.ParseLineForDigitsAsLetters(input);
+        Assert.Equal(expectedResult, result);
     }
 }
